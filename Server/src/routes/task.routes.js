@@ -8,8 +8,8 @@ taskRouter.get(`/api/tasks`, ctrlGetTasks)
 
 taskRouter.post(`/api/tasks`, ctrlCreateTasks)
 
-taskRouter.put(`/api/tasks`, ctrlUpdateTasks)
+taskRouter.put(`/api/tasks/:id`, ctrlUpdateTasks)
 
-taskRouter.delete(`/api/tasks`, ctrlDeleteTasks)
+taskRouter.delete(`/api/tasks/:id`, ctrlDeleteTasks)
 
 export {taskRouter}
