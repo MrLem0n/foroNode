@@ -1,34 +1,34 @@
-import { TaskModel } from "../models/tasks.js";
+import { ForuModel } from "../models/forum.js";
 
-export const ctrlGetTasks = async (req, res) => {
+export const ctrlGetForum = async (req, res) => {
   try {
-    const task = await TaskModel.findAll();
-    if (!task) {
+    const forum = await ForuModel.findAll();
+    if (!forum) {
       return res.status(404);
     } else {
-      return res.status(200).json(task);
+      return res.status(200).json(forum);
     }
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "error server" });
+    return res.status(500).json({ message: "why" });
   }
 };
 
-export const ctrlCreateTasks = async (req, res) => {
+export const ctrlCreateForum = async (req, res) => {
   const { tittle, description, image } = req.body;
   try {
-    const newTask = await TaskModel.create(req.body);
-    return res.status(201).json(newTask);
+    const newPost = await ForuModel.create(req.body);
+    return res.status(201).json(newPost);
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "error server" });
   }
 };
 
-export const ctrlUpdateTasks = async (req, res) => {
+export const ctrlUpdateForum = async (req, res) => {
   const { id } = req.params
     try {
-        const task = await TaskModel.findByPk(id)
+        const task = await ForuModel.findByPk(id)
 
         if (!task) {
             return res.status(404).json({
@@ -47,10 +47,10 @@ export const ctrlUpdateTasks = async (req, res) => {
     }
 };
 
-export const ctrlDeleteTasks = async (req, res) => {
+export const ctrlDeleteForum = async (req, res) => {
   const { id } = req.params;
   try {
-    const taskDelted = await TaskModel.destroy({
+    const taskDelted = await ForuModel.destroy({
       where: { id: id },
     });
     if (!taskDelted) {

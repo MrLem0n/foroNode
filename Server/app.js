@@ -1,12 +1,16 @@
 import express from "express";
-import { taskRouter } from "./src/routes/task.routes.js";
+import { forumRouter } from "./src/routes/Forum.js";
 import { startDb } from "./src/config/database.js";
-import path from 'node:path'
-const port = 3000;
+import cors from "cors";
+
 
 const app = express();
 app.use(express.json());
-app.use(`/`, taskRouter);
+app.use(cors());
+
+const port = 3000;
+
+app.use(`/`, forumRouter);
 
 app.listen(port, () => {
   console.log(`Servidores express en http://localhost:${port}`);
