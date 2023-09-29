@@ -1,0 +1,26 @@
+### Traer posts
+GET http://localhost:3000/api/posts
+
+### Crear post
+POST http://localhost:3000/api/posts
+Content-Type: application/json
+
+{
+    "tittle": "nueva wea 4",
+    "description": "nueva nueva 4",
+    "image": "https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+}
+### Modificar posts
+PUT http://localhost:3000/api/posts/7
+Content-Type: application/json
+
+{
+    "tittle": "nuevo titulo3",
+    "description": "nueva descripcio2",
+    "image": "https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+    
+}
+
+###Eliminar
+
+DELETE http://localhost:3000/api/posts/6
